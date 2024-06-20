@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Vendas - Resultado</title>
+  <link rel="stylesheet" href="/src/assets/css/simulador.css">
+</head>
+
+<body class="body">
+  <header>
+    <button class="button" id="btn-voltar">Voltar</button>
+    <h1>Simulador de vendas</h1>
+  </header>
+  <img src="/src/assets/css/images/file-1696014755258.png" alt="Logo Brasil Cash" id="logo">
+  <main id="geral">
+    <table>
+      <thead>
+        <tr>
+          <th>BANDEIRA</th>
+          <th>TAXA %</th>
+          <th>VALOR DA TAXA</th>
+          <th>VALOR VENDA</th>
+          <th>VALOR + TAXA</th>
+        </tr>
+      </thead>
+      <tbody id="tabela">
+      </tbody>
+    </table>
+    <!-- Nova tabela -->
+    <table id="tabela-parcelas">
+      <thead>
+        <tr>
+          <th>Nº Parcelas</th>
+          <th>Valor parcelado</th>
+          <th>Valor parcelado + taxa</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-parcelas-body">
+        <!-- Aqui serão adicionadas as linhas dinamicamente -->
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Pedro Augusto. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="/src/scipts/appsimulador.js"></script>
+</body>
+
+</html>

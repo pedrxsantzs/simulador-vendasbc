@@ -1,3 +1,4 @@
+/* --- Estilização geral */
 body {
   font-family: Arial, sans-serif;
   background-color: #b4eeff71;
@@ -8,20 +9,15 @@ body {
   align-items: center;
 }
 
+/* --- Estilização cabeçalho */
 header {
-  /* background-color: #003967; */
-  color: black;
+  background-color: #003967;
   width: 100%;
-  text-align: left;
-  padding: 20px 0;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  height: 40px;
+  text-align: right;
 }
 
-#titulo__pagina {
-  margin: 0;
-  font-size: 24px;
-}
-
+/* --- Estilização do conteudo da pagina */
 main {
   background-color: white;
   padding: 20px;
@@ -32,6 +28,7 @@ main {
   max-width: 600px;
 }
 
+/* --- Estilização do rodapé */
 footer {
   background-color: #003967;
   color: white;
@@ -46,7 +43,7 @@ footer p {
   margin: 0;
 }
 
-/* Estilos da classe campo */
+/* --- Estilização da classe campo */
 .campo {
   margin-bottom: 20px;
 }
@@ -88,17 +85,18 @@ footer p {
   background-color: #0060af;
 }
 
-/* Estilos para os campos lado a lado */
-.campo-duplo {
+/* --- Estilização para o campo duplo */
+.campo__duplo {
   display: flex;
   gap: 20px;
 }
 
-.campo-duplo .campo {
+.campo__duplo .campo {
   flex: 1;
   margin-bottom: 0;
 }
 
+/* --- Estililzação logo */
 #logo {
   margin-top: 50px;
   max-width: 300px;
