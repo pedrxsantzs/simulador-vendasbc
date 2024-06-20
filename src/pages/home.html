@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Vendas - Brasil Cash</title>
+  <link rel="stylesheet" href="/src/assets/css/estilo.css">
+</head>
+
+<body class="body">
+
+  <header>
+    <h1 id="titulo__pagina">Simulador de Vendas</h1>
+  </header>
+
+  <img src="/src/assets/css/images/file-1696014755258.png" alt="Logo Brasil Cash" id="logo">
+
+  <main id="geral">
+    <form id="simulador-vendas">
+      <div class="campo">
+        <label for="valor-venda">Valor da venda</label>
+        <input type="text" id="valor-venda" name="valor-venda">
+      </div>
+      <div class="campo-duplo">
+        <div class="campo">
+          <label for="qtde-parcelas">Qtde. de parcelas</label>
+          <input type="text" id="qtde-parcelas" name="qtde-parcelas">
+        </div>
+        <div class="campo">
+          <label for="bandeiras">Escolha a bandeira</label>
+          <select id="bandeiras" name="bandeiras">
+            <option value="" disabled selected>Escolha a bandeira</option>
+            <option value="master">Master</option>
+          </select>
+        </div>
+      </div>
+      <div class="campo">
+        <button type="submit">Simular</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Brasil Cash. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+
+</html>
