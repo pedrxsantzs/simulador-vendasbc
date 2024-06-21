@@ -1,140 +1,94 @@
-const parcelas = [
-  {
-    text: "1x",
-    value: 1,
-  },
-  {
-    text: "2x",
-    value: 2,
-  },
-  {
-    text: "3x",
-    value: 3,
-  },
-  {
-    text: "4x",
-    value: 4,
-  },
-  {
-    text: "5x",
-    value: 5,
-  },
-  {
-    text: "6x",
-    value: 6,
-  },
-  {
-    text: "7x",
-    value: 7,
-  },
-  {
-    text: "8x",
-    value: 8,
-  },
-  {
-    text: "9x",
-    value: 9,
-  },
-  {
-    text: "10x",
-    value: 10,
-  },
-  {
-    text: "11x",
-    value: 11,
-  },
-  {
-    text: "12x",
-    value: 12,
-  },
-];
+document.addEventListener("DOMContentLoaded", function () {
+  const values = localStorage.getItem("simulacao");
+  const simulationData = JSON.parse(values);
 
-async function getBrands() {
-  const resposta = await fetch("http://localhost:3000/brands").then(
-    (resposta) => resposta.json()
-  );
+  if (simulationData) {
+    // Gerar tabela principal com os dados da simulação
+    simulationData.data.brand_simulation.forEach((item) => {
+      const tr = document.createElement("tr");
 
-  let selectBandeiras = document.getElementById("bandeiras");
+      // Criação dos elementos td para cada coluna
+      const td_img = document.createElement("td");
+      const img_bandeira = document.createElement("img");
+      img_bandeira.src = item.image;
+      img_bandeira.alt = item.brand;
+      td_img.appendChild(img_bandeira);
 
-  resposta.forEach((option) => {
-    let opt = document.createElement("option");
-    opt.value = option.code;
-    opt.text = option.name;
-    selectBandeiras.appendChild(opt);
-  });
-}
+      const td_tax_percent = document.createElement("td");
+      td_tax_percent.textContent = `${item.tax.toFixed(2)}%`;
 
-function getInstallments(parcelas) {
-  let selectParcelas = document.getElementById("qtde_parcelas");
+      const td_tax = document.createElement("td");
+      const taxAmount = item.tax_amount / 100;
+      td_tax.textContent = taxAmount.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      });
 
-  parcelas.forEach((option) => {
-    let opt = document.createElement("option");
-    opt.value = option.value;
-    opt.textContent = option.text;
-    selectParcelas.appendChild(opt);
-  });
-}
+      const saleValue = parseFloat(simulationData.simulacao.valorVenda);
+      const td_sale_value = document.createElement("td");
+      td_sale_value.textContent = saleValue.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      });
 
-function formatarMoeda(input) {
-  let value = input.value;
-  if (value !== "") {
-    value = parseFloat(value);
-    input.value = value.toLocaleString("pt-BR", {
+      const totalValue = saleValue + taxAmount;
+      const td_total_value = document.createElement("td");
+      td_total_value.textContent = totalValue.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      });
+
+      // Adicionar colunas à linha
+      tr.appendChild(td_img);
+      tr.appendChild(td_tax_percent);
+      tr.appendChild(td_tax);
+      tr.appendChild(td_sale_value);
+      tr.appendChild(td_total_value);
+
+      // Adicionar linha à tabela principal
+      document.getElementById("tabela").appendChild(tr);
+    });
+
+    // Gerar tabela de parcelas
+    const parcelas = simulationData.simulacao.parcelas;
+    const valorParcela = simulationData.simulacao.valorParcela;
+    const taxAmount = simulationData.data.brand_simulation[0].tax_amount / 100;
+
+    const trParcelas = document.createElement("tr");
+    const tdParcelas = document.createElement("td");
+    tdParcelas.textContent = parcelas;
+
+    const tdValorParcela = document.createElement("td");
+    tdValorParcela.textContent = valorParcela.toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL",
     });
-  }
-}
 
-document
-  .getElementById("valor__venda")
-  .addEventListener("change", function (e) {
-    formatarMoeda(e.target);
-  });
+    const totalParcelaTaxa = valorParcela + taxAmount; // Calculando o valor parcelado + taxa
 
-window.onload = () => {
-  getBrands();
-  getInstallments(parcelas);
-};
+    const tdValorParcelaTaxa = document.createElement("td");
+    tdValorParcelaTaxa.textContent = totalParcelaTaxa.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
 
-const simularVendaBtn = document.getElementById("simular-venda-btn");
+    trParcelas.appendChild(tdParcelas);
+    trParcelas.appendChild(tdValorParcela);
+    trParcelas.appendChild(tdValorParcelaTaxa);
 
-simularVendaBtn.addEventListener("click", async function (event) {
-  event.preventDefault();
-
-  const valorVenda = document
-    .getElementById("valor__venda")
-    .value.replace("R$", "")
-    .replace(/\./g, "")
-    .replace(",", ".");
-  const parcelas = document.getElementById("qtde_parcelas").value;
-  const bandeira = document.getElementById("bandeiras").value;
-
-  const valorParcela = parseFloat(valorVenda) / parseFloat(parcelas);
-  const simulacao = {
-    valorVenda,
-    parcelas,
-    bandeira,
-    valorParcela,
-  };
-  const options = {
-    method: "POST", // Método HTTP
-    headers: {
-      "Content-Type": "application/json", // Tipo de conteúdo
-    },
-    body: JSON.stringify(simulacao), // Corpo da requisição em formato JSON
-  };
-  const resposta = await fetch("http://localhost:3000/simulate", options).then(
-    (resposta) => resposta.json()
-  );
-  if (resposta.is_success === true) {
-    localStorage.setItem(
-      "simulacao",
-      JSON.stringify({ ...resposta, simulacao })
-    );
-
-    window.location.replace("simulador.html");
+    document.getElementById("tabela__parcelasBody").appendChild(trParcelas);
   } else {
-    alert("Erro ao simular venda");
+    console.error("Nenhuma simulação encontrada no localStorage");
+  }
+
+  // Evento de clique para o botão "Voltar"
+  const btnVoltar = document.getElementById("btn-voltar");
+  if (btnVoltar) {
+    btnVoltar.addEventListener("click", function () {
+      // Redirecionar para a página inicial (home.html)
+      window.location.href = "home.html";
+    });
+  } else {
+    console.error("Botão 'Voltar' não encontrado.");
   }
 });

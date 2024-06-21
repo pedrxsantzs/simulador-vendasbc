@@ -18,10 +18,10 @@
         <label for="valor__venda">Valor da venda</label>
         <input type="text" id="valor__venda">
       </div>
-      <div class="campo__duplo">
+      <div class="campoDuplo">
         <div class="campo">
           <label for="qtde_parcelas">Quantidade de parcelas:</label>
-          <select id="qtde_parcelas">
+          <select id="qtde__parcelas">
             <option value="" disabled selected>Quantidade de parcelas</option>
           </select>
         </div>
@@ -33,17 +33,14 @@
         </div>
       </div>
       <div class="campo">
-        <button type="submit" id="simular-venda-btn">Simular Venda</button>
+        <button type="submit" id="btn__simularVenda">Simular Venda</button>
       </div>
     </form>
   </main>
-
   <footer>
     <p>&copy; 2024 Pedro Augusto. Todos os direitos reservados.</p>
   </footer>
-
-  <script src="/simulador-vendasbc/src/scripts/app.js"></script>
-
+  <script src="/simulador-vendasbc/src/utils/api.js"></script>
 </body>
 
 </html>

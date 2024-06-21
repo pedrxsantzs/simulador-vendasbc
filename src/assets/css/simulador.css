@@ -7,20 +7,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x: hidden; /* Previne scrollbar horizontal */
+  overflow-x: hidden;
 }
 
 /* --- Estilização cabeçalho */
 header {
   background-color: #003967;
   width: 100%;
-  height: 60px; /* Aumentando a altura para acomodar o botão e o título */
+  height: 60px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Alinha os itens nos extremos opostos */
-  padding: 0 20px; /* Adiciona espaço ao redor do conteúdo do cabeçalho */
-  position: relative; /* Para uso de posicionamento absoluto no botão e título */
-  box-sizing: border-box; /* Inclui padding e border na largura e altura do elemento */
+  justify-content: space-between;
+  padding: 0 20px;
+  position: relative;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -30,10 +30,10 @@ h1 {
   text-align: center;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%); /* Centraliza o título */
+  transform: translateX(-50%);
 }
 
-/* Estilos para o botão */
+/* --- Estilização dos botões */
 .button {
   padding: 10px 20px;
   font-size: 16px;
@@ -51,7 +51,7 @@ h1 {
 
 /* Estilos específicos para o botão "Voltar" */
 #btn-voltar {
-  margin-left: 15px; /* Espaçamento de 15px da borda esquerda */
+  margin-left: 15px;
 }
 
 /* --- Estilização do conteúdo da página */
@@ -59,14 +59,12 @@ main {
   padding: 20px;
   margin: 20px 0;
   border-radius: 8px;
-  width: calc(
-    100% - 40px
-  ); /* Ajusta a largura para caber dentro da viewport com padding */
+  width: calc(100% - 40px);
   max-width: 1200px;
-  box-sizing: border-box; /* Inclui padding e border na largura e altura do elemento */
+  box-sizing: border-box;
 }
 
-/* Estilos adicionais específicos para a tabela */
+/* --- Estilos adicionais específicos para a tabela */
 table {
   width: 100%;
   background-color: white;
@@ -76,7 +74,7 @@ table {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box; /* Inclui padding e border na largura e altura do elemento */
+  box-sizing: border-box;
 }
 
 th,
@@ -84,7 +82,7 @@ td {
   padding: 12px;
   text-align: center;
   border-bottom: 1px solid #ddd;
-  box-sizing: border-box; /* Inclui padding e border na largura e altura do elemento */
+  box-sizing: border-box;
 }
 
 th {
@@ -101,6 +99,7 @@ tr:hover {
   height: auto;
 }
 
+/* --- Estilização do logo */
 #logo {
   margin-top: 50px;
   max-width: 300px;
@@ -108,6 +107,7 @@ tr:hover {
   text-align: center;
 }
 
+/* --- Estilização do rodapé */
 footer {
   background-color: #003967;
   color: white;

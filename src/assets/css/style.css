@@ -17,7 +17,7 @@ header {
   text-align: right;
 }
 
-/* --- Estilização do conteudo da pagina */
+/* --- Estilização do conteúdo da página */
 main {
   background-color: white;
   padding: 20px;
@@ -86,17 +86,17 @@ footer p {
 }
 
 /* --- Estilização para o campo duplo */
-.campo__duplo {
+.campoDuplo {
   display: flex;
   gap: 20px;
 }
 
-.campo__duplo .campo {
+.campoDuplo .campo {
   flex: 1;
   margin-bottom: 0;
 }
 
-/* --- Estililzação logo */
+/* --- Estilização logo */
 #logo {
   margin-top: 50px;
   max-width: 300px;
