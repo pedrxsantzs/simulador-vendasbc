@@ -4,6 +4,7 @@
   "description": "Code Challenge - Simulador de Vendas para Brasil Cash",
   "main": "index.js",
   "scripts": {
+    "start": "simulador-vendasbc/src/scripts/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
