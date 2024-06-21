@@ -30,19 +30,6 @@ Requisitos: você irá precisar do Mockoon e dos dados da API para conseguir sim
 
 5. Será exibido o resultado da simulação.
 
-### Exemplo de Uso
-
-javascript
-Copiar código
-// Exemplo de código JavaScript para simulação
-// Aqui você pode adicionar um snippet de código relevante
-
-document.getElementById('simular-btn').addEventListener('click', function() {
-// Lógica para simular a venda
-// Captura dos valores e chamada para API fake
-// Exibição dos resultados na página
-});
-
 ### Contribuições
 
 Contribuições são bem-vindas! Se você tem sugestões para melhorar este simulador, sinta-se à vontade para contribuir.
@@ -51,4 +38,4 @@ Contribuições são bem-vindas! Se você tem sugestões para melhorar este simu
 
 Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE.md para mais detalhes.
 
-Esse README.md formatado oferece uma visão clara e organizada sobre o simulador de vendas, explicando as tecnologias utilizadas, como usar o simulador e incentivando contribuições.
+Desenvolvido por Pedro Augusto. 👋
