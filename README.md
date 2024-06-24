@@ -14,6 +14,7 @@ Este simulador consome uma API fake disponibilizada pela Brasil Cash para recupe
 ### Como Utilizar
 
 Requisitos: você irá precisar do Mockoon e dos dados da API para conseguir simular.
+Documentação: https://documenter.getpostman.com/view/17299486/UVe9QUWc
 
 1. Clone o repositório.
 
