@@ -37,6 +37,6 @@ Contribuições são bem-vindas! Se você tem sugestões para melhorar este simu
 
 ### Licença
 
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE.md para mais detalhes.
+Este projeto está licenciado sob a Licença MIT.
 
 Desenvolvido por Pedro Augusto. 👋
